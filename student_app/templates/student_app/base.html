@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard_app/student_dashboard.css' %}">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <button onclick="toggleSidebar()">☰</button>
+        <h2>Student Panel</h2>
+    </div>
+
+    <div class="container">
+
+        <!-- SIDEBAR (COMMON FOR ALL PAGES) -->
+        <div class="sidebar">
+
+            <a href="{% url 'student_dashboard' %}">🏠 Dashboard</a>
+            <a href="{% url 'student_profile' %}">👤 Profile</a>
+            <a href="{% url 'student_resume' %}">📄 Resume</a>
+            <a href="{% url 'placements' %}">🏢 Placements</a>
+            <a href="{% url 'applied_jobs' %}">📌 Applied Jobs</a>
+
+        </div>
+
+        <!-- PAGE CONTENT WILL CHANGE -->
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+</div>
+
+<script>
+function toggleSidebar(){
+    document.querySelector(".sidebar").classList.toggle("hide");
+}
+</script>
+
+</body>
+</html>

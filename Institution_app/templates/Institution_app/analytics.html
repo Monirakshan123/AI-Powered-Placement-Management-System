@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Analytics</title>
+
+<link rel="stylesheet"
+href="{% static 'Institution_app/analytics.css' %}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Recruit<span>IQ</span>
+
+</div>
+
+<a href="{% url 'institution_dashboard' %}">
+Dashboard
+</a>
+
+<a href="{% url 'institution_students' %}">
+Students
+</a>
+
+<a href="{% url 'institution_companies' %}">
+Companies
+</a>
+
+<a href="{% url 'institution_jobs' %}">
+Jobs
+</a>
+
+<a href="{% url 'institution_analytics' %}" class="active">
+Analytics
+</a>
+
+</div>
+
+<div class="main">
+
+<h1>Placement Analytics</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>{{ total_students }}</h2>
+
+<p>Total Students</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ total_companies }}</h2>
+
+<p>Companies</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ total_jobs }}</h2>
+
+<p>Jobs</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ total_applications }}</h2>
+
+<p>Applications</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ shortlisted }}</h2>
+
+<p>Shortlisted</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ selected }}</h2>
+
+<p>Selected</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ placement_rate }}%</h2>
+
+<p>Placement Rate</p>
+
+</div>
+
+</div>
+
+<div class="chart-container">
+
+<canvas id="placementChart"></canvas>
+
+</div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('placementChart');
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+
+labels:[
+'Students',
+'Companies',
+'Jobs',
+'Applications',
+'Selected'
+],
+
+datasets:[{
+
+label:'RecruitIQ Analytics',
+
+data:[
+
+{{ total_students }},
+
+{{ total_companies }},
+
+{{ total_jobs }},
+
+{{ total_applications }},
+
+{{ selected }}
+
+]
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

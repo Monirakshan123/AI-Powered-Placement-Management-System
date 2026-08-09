@@ -1,0 +1,219 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+
+    background:#eef4fb;
+
+}
+
+/* Navbar */
+
+.navbar{
+
+    height:70px;
+
+    background:#0f172a;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 40px;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.logo span{
+
+    color:#38bdf8;
+
+}
+
+.back{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#2563eb;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+}
+
+/* Container */
+
+.container{
+
+    width:90%;
+
+    margin:40px auto;
+
+}
+
+.container h1{
+
+    color:#0f172a;
+
+    margin-bottom:30px;
+
+}
+
+/* Grid */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(360px,1fr));
+
+    gap:25px;
+
+}
+
+/* Card */
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.icon{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+}
+
+.card h2{
+
+    color:#0f172a;
+
+    margin-bottom:8px;
+
+}
+
+.company{
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#475569;
+
+    margin:8px 0;
+
+}
+
+/* Status */
+
+.status{
+
+    margin:20px 0;
+
+}
+
+.applied,
+.shortlisted,
+.rejected{
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+}
+
+.applied{
+
+    background:#f59e0b;
+
+}
+
+.shortlisted{
+
+    background:#16a34a;
+
+}
+
+.rejected{
+
+    background:#dc2626;
+
+}
+
+/* Button */
+
+.view-btn{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(135deg,#22d3ee,#2563eb);
+
+    padding:10px 22px;
+
+    border-radius:10px;
+
+}
+
+/* Empty */
+
+.empty{
+
+    background:white;
+
+    padding:60px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+}

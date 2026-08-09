@@ -1,0 +1,296 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* MAIN LAYOUT */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    background:#2563eb;
+    color:white;
+    padding:30px 20px;
+}
+
+/* MAIN CONTENT */
+
+.main{
+    flex:1;
+    padding:35px;
+    background:#f5f7fb;
+}
+/* =========================
+          TOP BAR
+========================= */
+
+.topbar{
+    background:white;
+    padding:25px 30px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-bottom:30px;
+}
+
+.topbar h1{
+    color:#1e3a8a;
+    font-size:32px;
+    font-weight:700;
+}
+/* =========================
+        SIDEBAR
+========================= */
+
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#2563eb,#1e3a8a);
+    color:white;
+    padding:30px 20px;
+    min-height:100vh;
+    position:sticky;
+    top:0;
+}
+
+/* Profile Image */
+
+.profile-image{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.profile-image img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid white;
+    background:white;
+}
+
+/* Student Name */
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:6px;
+    font-size:24px;
+    font-weight:600;
+}
+
+.sidebar p{
+    text-align:center;
+    color:#dbeafe;
+    margin-bottom:25px;
+    font-size:15px;
+}
+
+.sidebar hr{
+    border:none;
+    height:1px;
+    background:rgba(255,255,255,.25);
+    margin-bottom:25px;
+}
+
+/* Navigation */
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:10px;
+    margin-bottom:12px;
+    transition:.3s;
+    font-size:16px;
+}
+
+.sidebar a:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateX(6px);
+}
+
+.sidebar i{
+    width:22px;
+    text-align:center;
+}
+/* =========================
+        INFORMATION GRID
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.grid div{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:12px;
+    border-left:4px solid #2563eb;
+}
+
+.grid label{
+    display:block;
+    color:#6b7280;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.grid p{
+    color:#111827;
+    font-size:17px;
+    font-weight:500;
+}
+/* =========================
+        SKILLS SECTION
+========================= */
+
+.card p{
+    color:#444;
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* =========================
+       RESUME BUTTON
+========================= */
+
+.resume-btn{
+    display:inline-block;
+    background:#16a34a;
+    color:white;
+    padding:12px 22px;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.resume-btn:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+}
+
+/* No Resume */
+
+.card p:last-child{
+    color:#ef4444;
+}
+
+/* =========================
+      EDIT PROFILE BUTTON
+========================= */
+
+.main > a{
+    display:inline-block;
+    margin-top:10px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s ease;
+}
+
+.main > a:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.main > a i{
+    margin-right:8px;
+}
+
+/* =========================
+        SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef2ff;
+}
+
+/* =========================
+        RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+    min-height:auto;
+    position:relative;
+}
+
+.main{
+    width:100%;
+    padding:20px;
+}
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+.topbar h1{
+    font-size:28px;
+}
+
+.profile-image img{
+    width:100px;
+    height:100px;
+}
+
+.sidebar a{
+    justify-content:center;
+}
+}
+.action-buttons{
+    margin-top:20px;
+}
+
+.edit-btn{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.edit-btn:hover{
+    background:#1d4ed8;
+}
+

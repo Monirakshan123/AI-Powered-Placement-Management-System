@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Job</title>
+
+    <link rel="stylesheet" href="{% static 'Hr_app/edit_job.css' %}">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="form-box">
+
+        <h1>Edit Job</h1>
+
+        <p>Update the job details below.</p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="row">
+
+                <div class="input-group">
+                    <label>Job Title</label>
+                    <input type="text"
+                           name="job_title"
+                           value="{{ job.job_title }}">
+                </div>
+
+                <div class="input-group">
+                    <label>Location</label>
+                    <input type="text"
+                           name="location"
+                           value="{{ job.location }}">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-group">
+                    <label>Salary</label>
+                    <input type="text"
+                           name="salary"
+                           value="{{ job.salary }}">
+                </div>
+
+                <div class="input-group">
+                    <label>Job Type</label>
+                    <input type="text"
+                           name="job_type"
+                           value="{{ job.job_type }}">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-group">
+                    <label>Experience</label>
+                    <input type="text"
+                           name="experience"
+                           value="{{ job.experience }}">
+                </div>
+
+                <div class="input-group">
+                    <label>Qualification</label>
+                    <input type="text"
+                           name="qualification"
+                           value="{{ job.qualification }}">
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Required Skills</label>
+
+                <textarea name="skills">{{ job.skills }}</textarea>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Description</label>
+
+                <textarea name="description">{{ job.description }}</textarea>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Application Deadline</label>
+
+                <input type="date"
+                       name="deadline"
+                       value="{{ job.deadline|date:'Y-m-d' }}">
+
+            </div>
+
+            <div class="buttons">
+
+                <button class="update-btn" type="submit">
+
+                    Update Job
+
+                </button>
+
+                <a href="{% url 'posted_jobs' %}" class="cancel-btn">
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Jobs</title>
+
+<link rel="stylesheet"
+href="{% static 'Institution_app/jobs.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Recruit<span>IQ</span>
+
+</div>
+
+<a href="{% url 'institution_dashboard' %}">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+
+<a href="{% url 'institution_students' %}">
+<i class="fa-solid fa-user-graduate"></i>
+Students
+</a>
+
+<a href="{% url 'institution_companies' %}">
+<i class="fa-solid fa-building"></i>
+Companies
+</a>
+
+<a href="{% url 'institution_jobs' %}" class="active">
+<i class="fa-solid fa-briefcase"></i>
+Jobs
+</a>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<h2>Available Jobs</h2>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Job Title</th>
+
+<th>Company</th>
+
+<th>Location</th>
+
+<th>Salary</th>
+
+<th>Skills</th>
+
+<th>Applicants</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for job in jobs %}
+
+<tr>
+
+<td>{{ job.job_title }}</td>
+
+<td>{{ job.company.company_name }}</td>
+
+<td>{{ job.location }}</td>
+
+<td>{{ job.salary }}</td>
+<td>
+    <span class="skills">
+        {{ job.skills }}
+    </span>
+</td>
+
+<td>{{ job.jobapplication_set.count }}</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+
+<td colspan="6">
+
+No Jobs Posted Yet
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</body>
+
+</html>

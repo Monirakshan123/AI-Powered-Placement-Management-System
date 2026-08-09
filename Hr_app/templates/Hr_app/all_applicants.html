@@ -1,0 +1,217 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Applicants</title>
+
+<link rel="stylesheet"
+href="{% static 'Hr_app/all_applicants.css' %}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        Recruit<span>IQ</span>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="{% url 'hr_dashboard' %}" class="dashboard-btn">
+            Dashboard
+        </a>
+
+        <a href="{% url 'Hr_logout' %}" class="logout">
+            Logout
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>Applicants</h1>
+
+{% if applications %}
+
+<div class="grid">
+
+{% for application in applications %}
+
+<div class="card">
+    <div class="rank">
+
+🏆 Rank {{ forloop.counter }}
+
+</div>
+
+<div class="avatar">
+
+👤
+
+</div>
+
+<h2>
+
+{{ application.student.name }}
+
+</h2>
+
+<p class="job">
+
+Applied for :
+{{ application.job.job_title }}
+
+</p>
+
+<p class="detail">
+
+📧 {{ application.student.email }}
+
+</p>
+
+<p class="detail">
+
+🏫 {{ application.student.college }}
+
+</p>
+
+<p class="detail">
+
+🎓 CGPA :
+{{ application.student.cgpa }}
+
+</p>
+
+<p class="detail">
+
+🧠 {{ application.student.skills }}
+
+</p>
+
+<span class="status">
+
+{{ application.status }}
+
+</span>
+
+<!-- AI Score Card -->
+
+<div class="ai-score-card">
+
+    <h4>AI Match</h4>
+
+    {% if application.ai_score %}
+
+        <h2>{{ application.ai_score }}%</h2>
+
+        {% if application.ai_recommendation == "Excellent" %}
+
+<p class="excellent">
+
+🟢 Excellent
+
+</p>
+
+{% elif application.ai_recommendation == "Good" %}
+
+<p class="good">
+
+🔵 Good
+
+</p>
+
+{% elif application.ai_recommendation == "Average" %}
+
+<p class="average">
+
+🟡 Average
+
+</p>
+
+{% elif application.ai_recommendation == "Poor" %}
+
+<p class="poor">
+
+🔴 Poor
+
+</p>
+
+{% else %}
+
+<p>
+
+Not Analyzed
+
+</p>
+
+{% endif %}
+
+    {% else %}
+
+        <p>Not Analyzed</p>
+
+    {% endif %}
+
+</div>
+
+<div class="buttons">
+
+<div class="buttons">
+
+{% if application.student.resume %}
+
+<a
+href="{{ application.student.resume.url }}"
+target="_blank"
+class="resume">
+
+Resume
+
+</a>
+
+{% endif %}
+
+<a href="{% url 'student_profile' application.student.id %}" class="profile">
+
+Profile
+
+</a>
+<a href="{% url 'ai_match' application.id %}" class="ai-btn">
+    🤖 AI Match
+</a>
+
+<a href="{% url 'shortlist_applicant' application.id %}" class="shortlist">
+
+Shortlist
+
+</a>
+
+<a href="{% url 'reject_applicant' application.id %}" class="reject">
+
+Reject
+
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<h2>No Applicants Yet</h2>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html> 
+    <head> <title>RecruitIQ - Companies</title> 
+        <link rel="stylesheet" href="{% static 'company_app/dashboard.css' %}?v=1"> 
+    </head> 
+    <body> 
+        <div class="sidebar"> 
+            <div class="brand">Recruit<span>IQ</span></div> 
+            <a href="{% url 'admin_dashboard' %}">Dashboard</a> 
+            <a href="{% url 'admin_students' %}">Students</a> 
+            <a href="{% url 'admin_companies' %}" class="active">Companies</a> 
+            <a href="{% url 'admin_institutions' %}">Institutions</a> 
+            <a href="{% url 'admin_logout' %}">Logout</a> 
+        </div>
+         <div class="main"> 
+            <div class="topbar"> 
+                <h1>Companies</h1> 
+                <p>Verify company identities and approve recruiters.</p> 
+            </div> 
+            <div class="card"> 
+                <table width="100%" cellpadding="12"> 
+                    <tr style="background:#2563eb;color:white;"> 
+                        <th>Company</th> 
+                        <th>HR Name</th> 
+                        <th>Email</th> 
+                        <th>Status</th> 
+                        <th>Action</th> 
+                    </tr> 
+                    {% for company in companies %} 
+                    <tr> 
+                        <td>{{ company.company_name }}</td> 
+                        <td>{{ company.name }}</td> 
+                        <td>{{ company.email }}</td> 
+                        <td>{{ company.status }}</td> 
+                        <td> <a href="{% url 'approve_company' company.id %}"> Approve </a> | <a href="{% url 'reject_company' company.id %}"> Reject </a> 
+                        </td> 
+                    </tr> 
+                    {% empty %} 
+                    <tr> 
+                        <td colspan="5" align="center"> No companies found. </td> 
+                    </tr> 
+                    {% endfor %} 
+                </table> 
+            </div> 
+        </div> 
+    </body> 
+</html>

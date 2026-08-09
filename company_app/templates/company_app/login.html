@@ -1,0 +1,32 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html> 
+    <head> <title>RecruitIQ - Admin Login</title> 
+        <link rel="stylesheet" href="{% static 'company_app/auth.css' %}?v=1"> 
+    </head> 
+    <body> 
+        <div class="auth-card"> 
+            <div class="logo"> 
+                <h1>Recruit<span>IQ</span></h1> 
+            </div> 
+            <p class="subtitle">Sign in to the admin dashboard</p> 
+            {% if error %} 
+            <div class="error">{{ error }}</div> 
+            {% endif %} 
+            <form method="POST"> 
+                {% csrf_token %} 
+                <div class="input-group"> 
+                    <label>Email</label> 
+                    <input type="email" name="email" required> 
+                </div> 
+                <div class="input-group"> 
+                    <label>Password</label> 
+                    <input type="password" name="password" required> 
+                </div> 
+                <button class="btn" type="submit">Login</button> 
+            </form> 
+            <div class="footer"> Don't have an account? <a href="{% url 'admin_register' %}">Register</a> 
+            </div> 
+        </div> 
+    </body> 
+</html>

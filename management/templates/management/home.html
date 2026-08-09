@@ -1,0 +1,949 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RecruitIQ</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!--======================
+BACKGROUND SHAPES
+=======================-->
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<div class="dot dot1"></div>
+<div class="dot dot2"></div>
+
+
+
+
+
+<!--======================
+NAVBAR
+=======================-->
+
+<nav>
+
+<div class="logo">
+
+<img src="{% static 'images/logo1.png' %}">
+
+<h2>Recruit<span>IQ</span></h2>
+
+</div>
+
+
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#dashboard">About Us</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+
+
+<div class="nav-buttons">
+
+<button class="login-btn">
+
+Login
+
+</button>
+
+
+<button class="start-btn">
+
+Get Started
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
+</nav>
+
+
+
+
+
+
+
+<!--======================
+HERO
+=======================-->
+
+<section class="hero">
+
+<div class="left">
+
+<div class="tag">
+
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+Empowering Careers. Connecting Opportunities.
+
+</div>
+
+
+
+<h1>
+
+Welcome to
+
+<br>
+
+<span>AI Placement</span>
+
+<br>
+
+Management System
+
+</h1>
+
+
+
+<p>
+
+RecruitIQ uses Artificial Intelligence to connect
+
+the right talent with the right opportunities.
+
+</p>
+
+
+
+<div class="hero-buttons">
+
+<button class="primary">
+
+Get Started
+
+</button>
+
+<button class="secondary">
+
+Login
+
+</button>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="robot-circle">
+
+<img src="{% static 'images/robott.png' %}">
+
+
+</div>
+
+</section>
+<!-- ==========================
+ROLE SECTION
+========================== -->
+
+<section class="roles">
+
+    <div class="section-title">
+
+        <span>Choose Your Role</span>
+
+        <h2>Everything You Need in One Platform</h2>
+
+        <p>
+            RecruitIQ provides dedicated portals for Students,
+            Institutions, HR Professionals and Companies.
+        </p>
+
+    </div>
+
+
+
+<!-- STUDENT -->
+
+<div class="role-container">
+
+<div class="role-card student">
+
+<div class="card-icon">
+
+🎓
+
+</div>
+
+<h3>Student</h3>
+
+<p>
+
+Find your dream job using AI-powered career guidance
+and smart placement recommendations.
+
+</p>
+
+<ul>
+
+<li>AI Interview Practice</li>
+<li>Resume Builder</li>
+<li>Skill Assessment</li>
+<li>Job Recommendation</li>
+
+</ul>
+
+<button onclick="studentRegister()">
+
+Register as Student →
+
+</button>
+
+</div>
+
+
+
+
+
+<!-- INSTITUTION -->
+
+<div class="role-card institution">
+
+<div class="card-icon">
+
+🏫
+
+</div>
+
+<h3>Institution</h3>
+
+<p>
+
+Manage placements, students, recruiters,
+and analytics from one dashboard.
+
+</p>
+
+<ul>
+
+<li>Student Management</li>
+<li>Placement Analytics</li>
+<li>Drive Scheduling</li>
+<li>Reports</li>
+
+</ul>
+
+<button onclick="institutionRegister()">
+
+Register as Institution →
+
+</button>
+
+</div>
+
+
+
+
+
+
+<!-- HR -->
+
+<div class="role-card hr">
+
+<div class="card-icon">
+
+👨‍💼
+
+</div>
+
+<h3>HR Professional</h3>
+
+<p>
+
+Shortlist candidates, conduct interviews,
+and monitor recruitment progress.
+
+</p>
+
+<ul>
+
+<li>Candidate Screening</li>
+<li>Interview Management</li>
+<li>Recruitment Analytics</li>
+<li>Reports</li>
+
+</ul>
+
+<button onclick="hrRegister()">
+
+Register as HR →
+
+</button>
+
+</div>
+
+
+
+
+
+
+
+<!-- COMPANY -->
+
+<div class="role-card company">
+
+<div class="card-icon">
+
+💼
+
+</div>
+
+<h3>Admin</h3>
+
+<p>
+
+Oversee users, placements, and 
+platform operations with powerful AI-driven analytics and reporting tools.
+
+</p>
+
+<ul>
+
+<li>Manage Users</li>
+<li>Approve Companies & Institutions</li>
+<li>Monitor Jobs & Applications</li>
+<li>AI Analytics & Reports</li>
+
+</ul>
+
+<button onclick="companyRegister()">
+
+Register as Admin→
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+WHY CHOOSE RECRUITIQ
+========================================== -->
+
+<section  id="features" class="features">
+
+    <div class="section-title">
+
+        <span>Why RecruitIQ?</span>
+
+        <h2>Why Choose RecruitIQ?</h2>
+
+        <p>
+            AI-powered placement automation that connects students,
+            institutions, HR professionals and companies.
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-grid">
+
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon ai">
+
+                🤖
+
+            </div>
+
+            <h3>AI Job Matching</h3>
+
+            <p>
+
+                Intelligent algorithms recommend the best
+                jobs based on student skills.
+
+            </p>
+
+        </div>
+
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon analytics">
+
+                📊
+
+            </div>
+
+            <h3>Placement Analytics</h3>
+
+            <p>
+
+                Interactive dashboards help institutions
+                monitor placement performance.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon speed">
+
+                ⚡
+
+            </div>
+
+            <h3>Fast Recruitment</h3>
+
+            <p>
+
+                Reduce hiring time using AI screening
+                and automatic shortlisting.
+
+            </p>
+
+        </div>
+
+
+
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon secure">
+
+                🔒
+
+            </div>
+
+            <h3>Secure Platform</h3>
+
+            <p>
+
+                Secure authentication and encrypted
+                storage for all users.
+
+            </p>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon interview">
+
+                💬
+
+            </div>
+
+            <h3>Interview Practice</h3>
+
+            <p>
+
+                Students can prepare using AI-powered
+                mock interviews.
+
+            </p>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon report">
+
+                📄
+
+            </div>
+
+            <h3>Smart Reports</h3>
+
+            <p>
+
+                Generate placement reports with
+                one click.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ======================================
+STATISTICS
+====================================== -->
+
+<section class="statistics">
+
+    <div class="stats-heading">
+
+        <span>Our Achievements</span>
+
+        <h2>Empowering Placements with AI</h2>
+
+        <p>
+            RecruitIQ connects thousands of students, institutions,
+            companies, and HR professionals through intelligent recruitment.
+        </p>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎓
+            </div>
+
+            <h1 class="counter" data-target="10000">0</h1>
+
+            <h3>Students Registered</h3>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏢
+            </div>
+
+            <h1 class="counter" data-target="500">0</h1>
+
+            <h3>Companies</h3>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏫
+            </div>
+
+            <h1 class="counter" data-target="250">0</h1>
+
+            <h3>Institutions</h3>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🤖
+            </div>
+
+            <h1 class="counter" data-target="95">0</h1>
+
+            <h3>AI Matching Accuracy (%)</h3>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+HOW RECRUITIQ WORKS
+========================================== -->
+
+<section class="workflow">
+
+    <div class="section-title">
+
+        <span>How It Works</span>
+
+        <h2>Your Placement Journey</h2>
+
+        <p>
+            RecruitIQ simplifies the placement process with Artificial Intelligence.
+        </p>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="step">
+            <div class="circle">1</div>
+            <h3>Register</h3>
+            <p>Create your account.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="circle">2</div>
+            <h3>Build Profile</h3>
+            <p>Add skills, resume and academic details.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="circle">3</div>
+            <h3>AI Analysis</h3>
+            <p>AI evaluates your skills and profile.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="circle">4</div>
+            <h3>Job Matching</h3>
+            <p>Recommended jobs appear instantly.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="circle">5</div>
+            <h3>Interview</h3>
+            <p>Attend company interviews.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="circle">6</div>
+            <h3>Placement</h3>
+            <p>Congratulations! You're hired.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+AI DASHBOARD PREVIEW
+========================================== -->
+
+<section  id="dashboard" class="dashboard-preview">
+
+    <div class="dashboard-left">
+
+        <span class="badge">AI Powered Dashboard</span>
+
+        <h2>
+            Experience Smart Placement Analytics
+        </h2>
+
+        <p>
+            RecruitIQ uses Artificial Intelligence to analyze student skills,
+            recommend jobs, predict placement chances and help recruiters find
+            the right candidates faster.
+        </p>
+
+        <div class="dashboard-features">
+
+            <div class="feature-item">
+                <i class="fa-solid fa-robot"></i>
+                AI Placement Prediction
+            </div>
+
+            <div class="feature-item">
+                <i class="fa-solid fa-chart-line"></i>
+                Smart Analytics
+            </div>
+
+            <div class="feature-item">
+                <i class="fa-solid fa-user-check"></i>
+                Candidate Matching
+            </div>
+
+            <div class="feature-item">
+                <i class="fa-solid fa-file-lines"></i>
+                Resume Screening
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="dashboard-right">
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-header">
+
+                <h3>AI Dashboard</h3>
+
+                <span class="online"></span>
+
+            </div>
+
+
+
+            <div class="score-box">
+
+                <h4>Placement Score</h4>
+
+                <div class="circle-score">
+
+                    92%
+
+                </div>
+
+            </div>
+
+
+
+            <div class="progress-section">
+
+                <p>Python</p>
+
+                <div class="progress">
+                    <div class="progress-fill python"></div>
+                </div>
+
+                <p>Django</p>
+
+                <div class="progress">
+                    <div class="progress-fill django"></div>
+                </div>
+
+                <p>Communication</p>
+
+                <div class="progress">
+                    <div class="progress-fill communication"></div>
+                </div>
+
+            </div>
+
+
+
+            <div class="recommendation">
+
+                <h4>Recommended Job</h4>
+
+                <p>Python Full Stack Developer</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ======================================
+TESTIMONIALS
+====================================== -->
+
+<section class="testimonials">
+
+    <div class="section-title">
+
+        <span>Testimonials</span>
+
+        <h2>What Our Users Say</h2>
+
+        <p>
+            Thousands of students and recruiters trust RecruitIQ.
+        </p>
+
+    </div>
+
+
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+
+            <div class="quote">❝</div>
+
+            <p>
+
+                RecruitIQ helped me get placed in my dream company.
+                The AI recommendations were incredibly accurate.
+
+            </p>
+
+            <div class="profile">
+
+                <img src="{% static 'images/student1.jpg' %}">
+
+                <div>
+
+                    <h4>Rahul Sharma</h4>
+
+                    <span>Student</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="testimonial-card">
+
+            <div class="quote">❝</div>
+
+            <p>
+
+                Managing placement drives has never been easier.
+                Analytics and reports save a lot of time.
+
+            </p>
+
+            <div class="profile">
+
+                <img src="{% static 'images/hr1.jpg' %}">
+
+                <div>
+
+                    <h4>Priya Nair</h4>
+
+                    <span>HR Manager</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="testimonial-card">
+
+            <div class="quote">❝</div>
+
+            <p>
+
+                RecruitIQ simplified our campus recruitment process.
+                We hired quality candidates quickly.
+
+            </p>
+
+            <div class="profile">
+
+                <img src="{% static 'images/company1.jpg' %}">
+
+                <div>
+
+                    <h4>TechNova Pvt Ltd</h4>
+
+                    <span>Recruitment Team</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="contact" class="contact-section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Get in Touch</h2>
+            <p>Have questions about RecruitIQ? We'd love to hear from you.</p>
+        </div>
+
+        <!-- Horizontal Contact Cards -->
+        <div class="contact-info">
+
+            <div class="contact-item">
+                <span>📧</span>
+                <h5>Email</h5>
+                <p>support@recruitiq.com</p>
+            </div>
+
+            <div class="contact-item">
+                <span>📞</span>
+                <h5>Phone</h5>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="contact-item">
+                <span>📍</span>
+                <h5>Address</h5>
+                <p>Tamil Nadu, India</p>
+            </div>
+
+            <div class="contact-item">
+                <span>🕒</span>
+                <h5>Support</h5>
+                <p>Mon - Fri<br>9 AM - 6 PM</p>
+            </div>
+
+        </div>
+
+        <!-- Form below -->
+        <div class="contact-form">
+            ...
+        </div>
+
+    </div>
+</section>
+<script src="{% static 'js/home.js' %}"></script>
+
+
+</body>
+
+</html>

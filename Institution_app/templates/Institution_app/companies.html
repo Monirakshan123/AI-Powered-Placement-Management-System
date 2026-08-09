@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Companies</title>
+
+<link rel="stylesheet"
+href="{% static 'Institution_app/companies.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Recruit<span>IQ</span>
+
+</div>
+
+<a href="{% url 'institution_dashboard' %}">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+
+<a href="{% url 'institution_students' %}">
+<i class="fa-solid fa-user-graduate"></i>
+Students
+</a>
+
+<a href="{% url 'institution_companies' %}" class="active">
+<i class="fa-solid fa-building"></i>
+Companies
+</a>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<h2>Registered Companies</h2>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>Company</th>
+
+<th>HR Name</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+</tr>
+
+{% for company in companies %}
+
+<tr>
+
+<td>{{ company.company_name }}</td>
+
+<td>{{ company.hr_name }}</td>
+
+<td>{{ company.email }}</td>
+
+<td>{{ company.phone }}</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+
+<td colspan="4">
+
+No Companies Registered
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>HR Login</title>
+
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+
+    background:
+    radial-gradient(circle at top,#0ea5e9,#0f172a);
+
+}
+
+
+
+/* login card */
+
+.login-card{
+
+    width:420px;
+
+    padding:40px;
+
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.4);
+
+
+    animation:show .5s ease;
+
+}
+
+
+
+@keyframes show{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* heading */
+
+.login-card h1{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:10px;
+
+    font-size:30px;
+
+}
+
+
+
+.subtitle{
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* input box */
+
+
+.input-box{
+
+    margin-bottom:20px;
+
+}
+
+
+
+label{
+
+    color:white;
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+
+
+input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    outline:none;
+
+
+    border-radius:12px;
+
+    font-size:15px;
+
+}
+
+
+
+input:focus{
+
+    box-shadow:
+    0 0 12px #38bdf8;
+
+}
+
+
+
+/* error */
+
+
+.error{
+
+    color:#fecaca;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* button */
+
+
+.login-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+
+    background:
+    linear-gradient(135deg,#22d3ee,#2563eb);
+
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+}
+
+
+
+.login-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 25px rgba(14,165,233,.5);
+
+}
+
+
+
+
+.register-link{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#e2e8f0;
+
+}
+
+
+.register-link a{
+
+    color:#38bdf8;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="login-card">
+
+
+<h1>
+ Login
+</h1>
+
+
+<p class="subtitle">
+AI Powered Placement Management System
+</p>
+
+
+
+{% if error %}
+
+<p class="error">
+{{error}}
+</p>
+
+{% endif %}
+
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+
+<div class="input-box">
+
+<label>
+Email
+</label>
+
+<input 
+type="email"
+name="email"
+placeholder="Enter email"
+required>
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+<label>
+Password
+</label>
+
+<input 
+type="password"
+name="password"
+placeholder="Enter password"
+required>
+
+</div>
+
+
+
+
+<button class="login-btn">
+
+Login
+
+</button>
+
+
+
+</form>
+
+
+
+
+<div class="register-link">
+
+Don't have an account?
+
+<a href="{% url 'institution_register' %}">
+Register
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Institution Profile</title>
+
+<link rel="stylesheet"
+href="{% static 'Institution_app/profile.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        Recruit<span>IQ</span>
+    </div>
+
+    <a href="{% url 'institution_dashboard' %}">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+
+    <a href="{% url 'institution_students' %}">
+        <i class="fa-solid fa-user-graduate"></i>
+        Students
+    </a>
+
+    <a href="{% url 'institution_companies' %}">
+        <i class="fa-solid fa-building"></i>
+        Companies
+    </a>
+
+    <a href="{% url 'institution_jobs' %}">
+        <i class="fa-solid fa-briefcase"></i>
+        Jobs
+    </a>
+
+    <a href="{% url 'institution_analytics' %}">
+        <i class="fa-solid fa-chart-line"></i>
+        Analytics
+    </a>
+
+    <a href="{% url 'institution_reports' %}">
+        <i class="fa-solid fa-file-lines"></i>
+        Reports
+    </a>
+
+    <a href="{% url 'institution_profile' %}" class="active">
+        <i class="fa-solid fa-user"></i>
+        Profile
+    </a>
+
+</div>
+
+<div class="main">
+
+    <div class="profile-card">
+
+        <h1>Institution Profile</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="input-group">
+
+                <label>Institution Name</label>
+
+                <input
+                type="text"
+                name="institution_name"
+                value="{{ institution.institution_name }}"
+                required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <input
+                type="email"
+                name="email"
+                value="{{ institution.email }}"
+                required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Address</label>
+
+                <textarea
+                name="address"
+                rows="4"
+                required>{{ institution.address }}</textarea>
+
+            </div>
+
+            <button type="submit">
+                <i class="fa-solid fa-floppy-disk"></i>
+                Update Profile
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

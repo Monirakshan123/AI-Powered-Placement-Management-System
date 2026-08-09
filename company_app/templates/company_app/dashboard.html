@@ -1,0 +1,47 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html> 
+    <head> <title>RecruitIQ - Admin Dashboard</title> 
+        <link rel="stylesheet" href="{% static 'company_app/dashboard.css' %}?v=1"> 
+    </head> 
+    <body> 
+        <div class="sidebar"> 
+            <div class="brand">Recruit<span>IQ</span>
+            </div> 
+            <a href="{% url 'admin_dashboard' %}" class="active">Dashboard</a> 
+            <a href="{% url 'admin_students' %}">Students</a> <a href="#">Companies</a> 
+            <a href="{% url 'admin_companies' %}">Institutions</a> 
+            <a href="#">Jobs</a> 
+            <a href="#">Applications</a> 
+            <a href="{% url 'admin_logout' %}">Logout</a> 
+        </div> 
+        <div class="main"> 
+            <div class="topbar"> 
+                <h1>Welcome, {{ admin.name }} 👋</h1> 
+                <p>RecruitIQ Administrator Panel</p> 
+            </div> 
+            <div class="cards"> 
+                <div class="card"> 
+                    <h3>Total Students</h3> 
+                    <h1>{{ total_students }}</h1>
+                </div> 
+                <div class="card"> 
+                    <h3>Total Companies</h3> 
+                    <h1>{{ total_companies }}</h1> 
+                </div> 
+                <div class="card"> 
+                    <h3>Total Institutions</h3> 
+                    <h1>{{ total_institutions }}</h1> 
+                </div> 
+                <div class="card"> 
+                    <h3>Total Jobs</h3> 
+                    <h1>{{ total_jobs }}</h1> 
+                </div> 
+                <div class="card"> 
+                    <h3>Total Applications</h3> 
+                    <h1>{{ total_applications }}</h1> 
+                </div> 
+            </div> 
+        </div> 
+    </body> 
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Edit Profile</title>
+
+<link rel="stylesheet"
+href="{% static 'Hr_app/edit_hr_profile.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Edit Profile</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<label>Name</label>
+
+<input
+type="text"
+name="name"
+value="{{ hr.name }}"
+required>
+
+<label>Company Name</label>
+
+<input
+type="text"
+name="company_name"
+value="{{ hr.company_name }}"
+required>
+
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+value="{{ hr.email }}"
+required>
+
+<button type="submit">
+
+Save Changes
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

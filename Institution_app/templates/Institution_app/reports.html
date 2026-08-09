@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Reports</title>
+
+<link rel="stylesheet"
+href="{% static 'Institution_app/reports.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/?v=6>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        Recruit<span>IQ</span>
+    </div>
+
+    <a href="{% url 'institution_dashboard' %}">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+
+    <a href="{% url 'institution_students' %}">
+        <i class="fa-solid fa-user-graduate"></i>
+        Students
+    </a>
+
+    <a href="{% url 'institution_companies' %}">
+        <i class="fa-solid fa-building"></i>
+        Companies
+    </a>
+
+    <a href="{% url 'institution_jobs' %}">
+        <i class="fa-solid fa-briefcase"></i>
+        Jobs
+    </a>
+
+    <a href="{% url 'institution_analytics' %}">
+        <i class="fa-solid fa-chart-line"></i>
+        Analytics
+    </a>
+
+    <a href="{% url 'institution_reports' %}" class="active">
+        <i class="fa-solid fa-file-lines"></i>
+        Reports
+    </a>
+
+</div>
+
+<div class="main">
+
+<h1>Institution Reports</h1>
+
+<div class="report-grid">
+
+    <div class="report-card">
+
+        <i class="fa-solid fa-user-graduate"></i>
+
+        <h2>{{ students }}</h2>
+
+        <p>Total Students</p>
+
+    </div>
+
+    <div class="report-card">
+
+        <i class="fa-solid fa-building"></i>
+
+        <h2>{{ companies }}</h2>
+
+        <p>Total Companies</p>
+
+    </div>
+
+    <div class="report-card">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        <h2>{{ jobs }}</h2>
+
+        <p>Total Jobs</p>
+
+    </div>
+
+    <div class="report-card">
+
+        <i class="fa-solid fa-file-circle-check"></i>
+
+        <h2>{{ applications }}</h2>
+
+        <p>Total Applications</p>
+
+    </div>
+
+</div>
+
+<div class="download-section">
+
+    <h2>Generate Reports</h2>
+
+    <a href="{% url 'download_students_report' %}" class="download-btn">
+📄 Download Student Report
+</a>
+
+<a href="{% url 'download_companies_report' %}" class="download-btn">
+🏢 Download Company Report
+</a>
+
+<a href="{% url 'download_jobs_report' %}" class="download-btn">
+💼 Download Job Report
+</a>
+
+<a href="{% url 'download_applications_report' %}" class="download-btn">
+📊 Download Placement Report
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

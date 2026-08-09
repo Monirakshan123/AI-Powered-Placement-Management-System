@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Available Jobs</title>
+
+<link rel="stylesheet"
+href="{% static 'student_app/student_jobs.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div>
+
+<h1>Available Jobs</h1>
+
+<p>Explore opportunities posted by recruiters.</p>
+
+</div>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Search jobs...">
+
+</div>
+
+{% if jobs %}
+
+<div class="jobs-grid">
+
+{% for job in jobs %}
+
+<div class="job-card">
+
+<h2>{{ job.job_title }}</h2>
+
+<div class="company">
+
+🏢 {{ job.company.company_name }}
+
+</div>
+
+<div class="details">
+
+<p>📍 {{ job.location }}</p>
+
+<p>💰 {{ job.salary }}</p>
+
+<p>🎓 {{ job.qualification }}</p>
+
+<p>🧠 {{ job.skills }}</p>
+
+<p>📅 Apply Before : {{ job.deadline }}</p>
+
+</div>
+
+<p class="description">
+
+{{ job.description }}
+
+</p>
+
+<div class="buttons">
+
+{% if job.id in applied_jobs %}
+
+<span class="applied">
+
+✅ Applied
+
+</span>
+
+{% else %}
+
+<a
+href="{% url 'apply_job' job.id %}"
+class="apply-btn">
+
+Apply Now
+
+</a>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<h2>No Jobs Available</h2>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
+

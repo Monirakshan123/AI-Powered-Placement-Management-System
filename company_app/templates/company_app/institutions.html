@@ -1,0 +1,40 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html> 
+    <head> <title>Institutions</title> 
+        <link rel="stylesheet" href="{% static 'company_app/dashboard.css' %}?v=1"> 
+    </head> 
+    <body> 
+        <div class="sidebar"> 
+            <div class="brand">Recruit<span>IQ</span></div> 
+            <a href="{% url 'admin_dashboard' %}">Dashboard</a> 
+            <a href="{% url 'admin_students' %}">Students</a> 
+            <a href="{% url 'admin_institutions' %}" class="active">Institutions</a> 
+            <a href="{% url 'admin_logout' %}">Logout</a> 
+        </div> 
+        <div class="main"> 
+            <div class="topbar"> 
+                <h1>Institutions</h1> 
+            </div> 
+            <div class="card"> 
+                <table width="100%" cellpadding="12"> 
+                    <tr style="background:#2563eb;color:white;"> 
+                        <th>Institution</th> 
+                        <th>Email</th> 
+                        <th>Status</th> 
+                        <th>Action</th> 
+                    </tr> 
+                    {% for institution in institutions %} 
+                    <tr> 
+                        <td>{{ institution.institution_name }}</td> 
+                        <td>{{ institution.email }}</td> 
+                        <td>{{ institution.status }}</td> 
+                        <td> 
+                            <a href="{% url 'approve_institution' institution.id %}"> Approve </a> | <a href="{% url 'reject_institution' institution.id %}"> Reject </a> </td> 
+                        </tr> 
+                        {% endfor %} 
+                    </table> 
+                </div> 
+            </div> 
+        </body> 
+    </html>

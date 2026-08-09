@@ -1,0 +1,683 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RecruitIQ</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f8fbff;
+
+    overflow:hidden;
+    position:relative;
+}
+
+/* Background Gradient */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    background:radial-gradient(circle,#6c63ff30 0%,transparent 70%);
+
+    top:-250px;
+    left:-250px;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    background:radial-gradient(circle,#39b8ff30 0%,transparent 70%);
+
+    right:-250px;
+    top:-150px;
+
+}
+
+/* Main Container */
+
+.login-wrapper{
+
+    width:1200px;
+    max-width:92%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:relative;
+    z-index:2;
+}
+
+/* Left Section */
+
+.left{
+
+    width:42%;
+}
+
+.left span{
+
+    display:inline-block;
+
+    background:#eef2ff;
+
+    color:#5b5ce2;
+
+    padding:12px 25px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    margin-bottom:30px;
+}
+
+.left h1{
+
+    font-size:60px;
+
+    color:#111827;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+}
+
+.left h1 strong{
+
+    color:#4f46e5;
+}
+
+.left p{
+
+    color:#6b7280;
+
+    font-size:18px;
+
+    line-height:32px;
+
+    margin-bottom:40px;
+}
+
+.back{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(90deg,#6d5dfc,#4a7dff);
+
+    padding:16px 45px;
+
+    border-radius:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.back:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(80,90,255,.25);
+}
+
+/* Right Section */
+
+.right{
+
+    width:48%;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+}
+
+/* Cards */
+
+.card{
+    flex:1;
+    max-width:260px;
+    background:white;
+    text-align:center;
+    border-radius:25px;
+
+    padding:35pxn 25px;
+
+    text-decoration:none;
+
+    color: #111827;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#5b5ce2;
+
+    box-shadow:0 25px 50px rgba(90,90,255,.18);
+}
+
+.card i{
+
+    font-size:50px;
+
+    color:#5b5ce2;
+
+    margin-bottom:20px;
+}
+
+.card h2{
+
+    margin-bottom:10px;
+
+    font-size:24px;
+}
+
+.card p{
+
+    color:#6b7280;
+
+    font-size:15px;
+
+    margin-bottom:20px;
+}
+
+.card span{
+
+    color:#5b5ce2;
+
+    font-weight:600;
+}
+
+@media(max-width:900px){
+
+.login-wrapper{
+
+flex-direction:column;
+
+}
+
+.left,
+.right{
+
+width:100%;
+
+}
+
+.left{
+
+margin-bottom:40px;
+
+text-align:center;
+
+}
+
+.right{
+
+grid-template-columns:1fr;
+
+}
+
+.left h1{
+
+font-size:42px;
+
+}
+
+}
+/* ================= NAVBAR ================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:85px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 8%;
+
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo img{
+
+    width:42px;
+
+}
+
+.logo h2{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:#1f2937;
+
+}
+
+.logo span{
+
+    color:#5b5ce2;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:45px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#374151;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#5b5ce2;
+
+}
+
+.nav-btns{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.back-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(90deg,#6b5cff,#4f8cff);
+
+    padding:14px 34px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(91,92,226,.25);
+
+}
+
+/* Give space below fixed navbar */
+
+body{
+
+    padding-top:85px;
+
+}
+.hero-text{
+
+    text-align:center;
+
+    margin-top:40px;
+    margin-bottom:60px;
+
+}
+
+.tagline{
+
+    display:inline-block;
+
+    padding:12px 25px;
+
+    border-radius:50px;
+
+    background:#eef2ff;
+
+    color:#5b5ce2;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+}
+
+.hero-text h1{
+
+    font-size:68px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    color:#111827;
+
+    margin-bottom:20px;
+
+}
+
+.gradient-text{
+
+    background:linear-gradient(90deg,#6b5cff,#00a6ff);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-text p{
+
+    font-size:22px;
+
+    color:#6b7280;
+
+}
+/* Role Container */
+.role-container{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:50px auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:stretch;
+
+    gap:25px;
+
+    flex-wrap:nowrap;
+
+}
+
+/* Role Cards */
+
+.role-card{
+
+    width:250px;
+    height:280px;
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    text-decoration:none;
+
+    color:#111827;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    transition:0.3s ease;
+
+}
+
+.role-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#5b5ce2;
+
+    box-shadow:0 20px 40px rgba(91,92,226,.20);
+
+}
+
+.role-card i{
+
+    font-size:55px;
+
+    color:#5b5ce2;
+
+    margin-bottom:20px;
+
+}
+
+.role-card h3{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    min-height:32px;   /* Keeps titles aligned */
+
+}
+
+.role-card p{
+
+    font-size:16px;
+
+    color:#6b7280;
+
+    margin:0;
+
+    min-height:24px;   /* Keeps text aligned */
+
+}
+.btn{
+     text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(90deg,#6b5cff,#4f8cff);
+
+    padding:14px 34px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+    
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <div class="hero-text">
+
+    <span class="tagline">🔐 Secure Access</span>
+
+    <h1>
+        Welcome to <br>
+        <span class="gradient-text">RecruitIQ</span>
+    </h1>
+
+    <p>Select your role to continue</p>
+
+</div>
+<div class="role-container">
+
+    <a href="/student/login/" class="role-card">
+        <i class="fa-solid fa-user-graduate"></i>
+        <h3>Student</h3>
+        <button class="btn" onclick="goToDashboard('student')">Login</button>
+    </a>
+
+    <a href="/hr/login/" class="role-card">
+        <i class="fa-solid fa-user-tie"></i>
+        <h3>HR</h3>
+        <button class="btn">Login</button>
+    </a>
+
+    <a href="/company/login/" class="role-card">
+        <i class="fa-solid fa-building"></i>
+        <h3>Admin</h3>
+        <button class="btn" onclick="goToDashboard('Admin')">Login</button>
+    </a>
+
+    <a href="/institution/login/" class="role-card">
+        <i class="fa-solid fa-school"></i>
+        <h3>Institution</h3>
+        <button class="btn" onclick=goToDashboard('Institution')>Login</button>
+    </a>
+
+</div>
+    
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img src="{% static 'images/logo1.png' %}" alt="RecruitIQ">
+
+        <h2>Recruit<span>IQ</span></h2>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#contact">Contact</a></li>
+
+    </ul>
+
+    <div class="nav-btns">
+
+        <a href="/" class="back-btn">
+            ← Back
+        </a>
+
+    </div>
+
+</nav>
+<script>
+    function goToDashboard(role){
+
+    switch(role){
+
+        case "student":
+            window.location.href="/student/dashboard/";
+            break;
+
+        case "hr":
+            window.location.href="/Hr_app/dashboard/";
+            break;
+
+        case "Admin":
+            window.location.href="/company/dashboard/";
+            break;
+
+        case "Institution":
+            window.location.href="/institution/dashboard/";
+            break;
+
+        default:
+            alert("Invalid Role");
+
+    }
+
+}
+</script>
+
+</body>
+</html>

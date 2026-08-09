@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+     {% if hr_view %}
+<h1>Applicant Profile</h1>
+{% else %}
+<h1>Student Profile</h1>
+{% endif %}
+
+    <link rel="stylesheet"
+          href="{% static 'student_app/profile.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="profile-image">
+
+            {% if student.profile_photo %}
+                <img src="{{ student.profile_photo.url }}">
+            {% else %}
+                <img src="{% static 'Student_app/images/default.png' %}">
+            {% endif %}
+
+        </div>
+
+        <h2>{{ student.name }}</h2>
+
+        <p>{{ student.department }}</p>
+
+        <hr>
+
+       {% if hr_view %}
+
+<a href="{% url 'hr_dashboard' %}">
+    🏠 HR Dashboard
+</a>
+
+<a href="{% url 'all_applicants' %}">
+    👥 Back to Applicants
+</a>
+
+{% else %}
+
+<a href="{% url 'student_dashboard' %}">
+    🏠 Dashboard
+</a>
+
+<a href="{% url 'student_profile' %}">
+    👤 Profile
+</a>
+
+<a href="{% url 'resume_analysis' %}">
+    🤖 Resume Analysis
+</a>
+
+<a href="{% url 'student_jobs' %}">
+    🏢 Placements
+</a>
+
+<a href="#">⚙️ Settings</a>
+
+<a href="{% url 'logout' %}">
+    🚪 Logout
+</a>
+
+{% endif %}
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h1>Student Profile</h1>
+
+        </div>
+    
+
+        <!-- Personal -->
+
+        <div class="card">
+
+            <h2>Personal Information</h2>
+
+            <div class="grid">
+
+                <div>
+                    <label>Name</label>
+                    <p>{{ student.name }}</p>
+                </div>
+
+                <div>
+                    <label>Email</label>
+                    <p>{{ student.email }}</p>
+                </div>
+
+                <div>
+                    <label>Phone</label>
+                    <p>{{ student.phone }}</p>
+                </div>
+
+                <div>
+                    <label>Gender</label>
+                    <p>{{ student.gender }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Academic -->
+
+        <div class="card">
+
+            <h2>Academic Details</h2>
+
+            <div class="grid">
+
+                <div>
+                    <label>College</label>
+                    <p>{{ student.college }}</p>
+                </div>
+
+                <div>
+                    <label>Department</label>
+                    <p>{{ student.department }}</p>
+                </div>
+
+                <div>
+                    <label>Year</label>
+                    <p>{{ student.year }}</p>
+                </div>
+
+                <div>
+                    <label>CGPA</label>
+                    <p>{{ student.cgpa }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Skills -->
+
+        <div class="card">
+
+            <h2>Skills</h2>
+
+            <p>{{ student.skills }}</p>
+
+        </div>
+
+        <!-- Resume -->
+
+        <div class="card">
+
+            <h2>Resume</h2>
+
+            {% if student.resume %}
+    <a href="{{ student.resume.url }}" class="resume-btn">
+        Download Resume
+    </a>
+{% else %}
+    <p>No resume uploaded yet.</p>
+{% endif %}
+        
+
+        </div>
+    {% if not hr_view %}
+
+<div class="action-buttons">
+
+    <a href="{% url 'edit_student_profile' %}" class="edit-btn">
+
+        <i class="fa-solid fa-pen"></i>
+
+        Edit Profile
+
+    </a>
+
+</div>
+
+{% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Registration Successful</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top,#0ea5e9,#0f172a);
+
+}
+
+
+/* success card */
+
+.success-card{
+
+    width:420px;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.35);
+
+}
+
+
+/* check icon */
+
+.check{
+
+    width:90px;
+    height:90px;
+
+    margin:auto;
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:50px;
+
+    animation:pop .5s ease;
+
+}
+
+
+
+@keyframes pop{
+
+    from{
+        transform:scale(0);
+    }
+
+    to{
+        transform:scale(1);
+    }
+
+}
+
+
+
+h1{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+
+p{
+
+    color:#e2e8f0;
+
+    margin-bottom:30px;
+
+    font-size:16px;
+
+}
+
+
+/* button */
+
+.home-btn,
+.login-btn{
+
+    display:inline-block;
+
+    padding:12px 30px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:25px;
+
+
+    background:
+    linear-gradient(135deg,#22d3ee,#2563eb);
+
+
+    transition:.3s;
+
+}
+.login-btn{
+
+    background:
+    linear-gradient(135deg,#22c55e,#16a34a);
+
+}
+
+
+
+.home-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(14,165,233,.5);
+
+}
+.login-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(14,165,233,.5);
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="success-card">
+
+
+<div class="check">
+✓
+</div>
+
+
+<h1>
+Registration Successful
+</h1>
+
+
+<p>
+Your HR account has been created successfully.
+<br>
+You can now login and manage recruitment activities.
+</p>
+
+
+<div class="buttons">
+
+<a href="{% url 'Hr_login' %}" class="login-btn">
+Go To Login
+</a>
+
+
+<a href="/" class="home-btn">
+Go To Home
+</a>
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

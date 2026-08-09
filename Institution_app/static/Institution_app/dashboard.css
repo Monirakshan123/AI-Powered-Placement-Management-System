@@ -1,0 +1,157 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f7fb;
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    width:250px;
+
+    height:100vh;
+
+    background:#0f172a;
+
+    position:fixed;
+
+    padding-top:25px;
+
+}
+
+.logo{
+
+    color:white;
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    margin-bottom:40px;
+
+}
+
+.logo span{
+
+    color:#38bdf8;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 25px;
+
+    transition:.3s;
+
+}
+
+.sidebar a i{
+
+    width:30px;
+
+}
+
+.sidebar a:hover{
+
+    background:#2563eb;
+
+}
+
+/* Main */
+
+.main{
+
+    margin-left:250px;
+
+    width:100%;
+
+    padding:30px;
+
+}
+
+.topbar{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.card i{
+
+    font-size:40px;
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.card h3{
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+.card h2{
+
+    color:#0f172a;
+
+    font-size:32px;
+
+}

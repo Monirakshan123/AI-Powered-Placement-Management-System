@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RecruitIQ - Admin Register</title>
+    <link rel="stylesheet" href="{% static 'company_app/auth.css' %}?v=1">
+</head>
+<body>
+
+<div class="auth-card">
+
+    <div class="logo">
+        <h1>Recruit<span>IQ</span></h1>
+    </div>
+
+    <p class="subtitle">Create your administrator account</p>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" name="name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <div class="input-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" required>
+        </div>
+
+        <button class="btn" type="submit">Register</button>
+    </form>
+
+    <div class="footer">
+        Already have an account?
+        <a href="{% url 'admin_login' %}">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>

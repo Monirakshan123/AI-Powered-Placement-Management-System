@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Resume Analysis</title>
+
+    <link rel="stylesheet" href="{% static 'student_app/resume_analysis.css' %}?v=10">
+ 
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>🤖 AI Resume Analysis</h1>
+
+        <p>Improve your Resume before applying for jobs.</p>
+
+    </div>
+
+    <div class="top-grid">
+
+        <div class="card">
+
+            <h3>Resume Status</h3>
+
+            {% if student.resume %}
+
+                <p class="success">🟢 Resume Uploaded</p>
+
+                <a class="download-btn"
+                   href="{{ student.resume.url }}"
+                   target="_blank">
+
+                    Download Resume
+
+                </a>
+
+            {% else %}
+
+                <p class="danger">🔴 Resume Not Uploaded</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="score-card">
+
+            <h2>🤖 AI Score</h2>
+
+            <h1>{{ ats_score }}%</h1>
+
+            <p>💼 <strong>{{ best_job.job_title }}</strong></p>
+
+            <p>🏢 {{ best_job.company.company_name }}</p>
+
+    <hr>
+
+    <p>🎯 Skill Match : <strong>{{ skill_score }}%</strong></p>
+
+    <p>📄 Resume Similarity : <strong>{{ tfidf_score }}%</strong></p>
+
+</div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Detected Skills</h3>
+
+        <div class="tags">
+
+            {% for skill in skills %}
+
+                <span>{{ skill }}</span>
+
+            {% empty %}
+
+                <p>No skills added in profile.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Missing Skills</h3>
+
+        <div class="tags warning">
+
+            {% for skill in missing_skills %}
+
+                <span>{{ skill }}</span>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+    <div class="analysis-card">
+
+    <h2>🎯 Best Matching Job</h2>
+
+    {% if best_job %}
+
+        <h3>{{ best_job.job_title }}</h3>
+
+        <p>{{ best_job.company.company_name }}</p>
+
+        <p>{{ best_job.location }}</p>
+
+    {% else %}
+
+        <p>No jobs available.</p>
+
+    {% endif %}
+
+</div>
+
+    <div class="card">
+
+        <h3>AI Suggestions</h3>
+
+        <ul>
+
+            {% for suggestion in suggestions %}
+
+                <li>{{ suggestion }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

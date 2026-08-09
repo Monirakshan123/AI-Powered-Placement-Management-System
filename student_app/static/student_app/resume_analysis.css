@@ -1,0 +1,347 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    background:#eef5ff;
+    color:#222;
+    padding:40px;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.header h1{
+
+    font-size:42px;
+    color:#2563eb;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.header p{
+
+    color:#666;
+    font-size:18px;
+}
+
+/* ===========================
+   TOP GRID
+=========================== */
+
+.top-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-bottom:30px;
+}
+
+/* ===========================
+   CARDS
+=========================== */
+
+.card,
+.analysis-card,
+.score-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    margin-bottom:25px;
+}
+
+.card:hover,
+.analysis-card:hover,
+.score-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 40px rgba(37,99,235,.15);
+}
+
+.card h3,
+.analysis-card h2{
+
+    margin-bottom:20px;
+
+    color:#2563eb;
+}
+
+/* ===========================
+   SCORE CARD
+=========================== */
+
+.score-card{
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    text-align:center;
+}
+
+.score-card h2{
+
+    color:white;
+
+    margin-bottom:20px;
+}
+
+.score-card h1{
+
+    width:170px;
+    height:170px;
+
+    margin:20px auto;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#2563eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:46px;
+
+    font-weight:bold;
+
+    border:10px solid rgba(255,255,255,.3);
+}
+
+.score-card p{
+
+    margin:10px 0;
+
+    font-size:17px;
+}
+
+.score-card strong{
+
+    color:white;
+}
+
+.score-card hr{
+
+    margin:20px 0;
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,.3);
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.download-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.download-btn:hover{
+
+    background:#1d4ed8;
+}
+
+/* ===========================
+   STATUS
+=========================== */
+
+.success{
+
+    color:#16a34a;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+.danger{
+
+    color:#dc2626;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+/* ===========================
+   TAGS
+=========================== */
+
+.tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+}
+
+.tags span{
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.tags span:hover{
+
+    transform:scale(1.05);
+}
+
+.warning span{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+}
+
+/* ===========================
+   JOB CARD
+=========================== */
+
+.analysis-card{
+
+    border-left:6px solid #2563eb;
+}
+
+.analysis-card h3{
+
+    font-size:28px;
+
+    margin:18px 0;
+
+    color:#111827;
+}
+
+.analysis-card p{
+
+    margin:10px 0;
+
+    color:#555;
+
+    font-size:17px;
+}
+
+/* ===========================
+   SUGGESTIONS
+=========================== */
+
+.card ul{
+
+    list-style:none;
+}
+
+.card ul li{
+
+    background:#eff6ff;
+
+    margin:12px 0;
+
+    padding:15px;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.card ul li:hover{
+
+    background:#dbeafe;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.top-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.score-card h1{
+
+width:140px;
+
+height:140px;
+
+font-size:36px;
+
+}
+
+body{
+
+padding:20px;
+
+}
+
+}

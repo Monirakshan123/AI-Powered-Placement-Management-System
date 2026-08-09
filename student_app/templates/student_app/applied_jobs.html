@@ -1,0 +1,9 @@
+<h2>My Applications</h2>
+
+{% for app in applications %}
+<div class="job-card">
+    <h3>{{ app.job.title }}</h3>
+    <p>{{ app.job.company }}</p>
+    <p>Status: {{ app.status }}</p>
+</div>
+{% endfor %}

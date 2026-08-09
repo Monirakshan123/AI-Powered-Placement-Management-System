@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RecruitIQ - Student Verification</title>
+    <link rel="stylesheet" href="{% static 'Institution_app/dashboard.css' %}?v=1">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="brand">Recruit<span>IQ</span></div>
+
+    <a href="{% url 'institution_dashboard' %}">Dashboard</a>
+    <a href="{% url 'institution_students' %}" class="active">Students</a>
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>Student Verification</h1>
+        <p>Approve students from {{ institution.institution_name }}</p>
+    </div>
+
+    <div class="card">
+
+        <table width="100%" cellpadding="12">
+
+            <tr style="background:#2563eb;color:white;">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Register number</th>
+                <th>Department</th>
+                <th>CGPA</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{student.registerno}}</td>
+                <td>{{student.department}}</td>
+                <td>{{ student.cgpa }}</td>
+                <td>{{ student.status }}</td>
+
+                <td>
+                    <a href="{% url 'approve_student' student.id %}">
+                        Approve
+                    </a>
+
+                    |
+
+                    <a href="{% url 'reject_student' student.id %}">
+                        Reject
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" align="center">
+                    No students found.
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

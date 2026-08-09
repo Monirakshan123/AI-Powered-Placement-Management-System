@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>HR Dashboard</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+.left-topbar{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.notification-icon{
+    position:relative;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.notification-icon:hover{
+    transform:scale(1.1);
+}
+
+.badge{
+    position:absolute;
+    top:-5px;
+    right:-8px;
+    width:20px;
+    height:20px;
+    background:red;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:12px;
+}
+
+body{
+    background:#f1f5f9;
+}
+
+/* Dashboard Layout */
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    width:260px;
+
+    background:#0f172a;
+
+    color:white;
+
+    position:fixed;
+
+    height:100vh;
+
+    padding:30px 20px;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.2);
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo span{
+
+    color:#38bdf8;
+
+}
+
+/* Profile */
+
+.profile{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.avatar{
+
+    width:90px;
+
+    height:90px;
+
+    background:linear-gradient(135deg,#22d3ee,#2563eb);
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+    margin:auto;
+
+    margin-bottom:15px;
+
+}
+
+.profile h3{
+
+    margin-bottom:6px;
+
+}
+
+.profile p{
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+}
+
+/* Menu */
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar ul li{
+
+    margin:12px 0;
+
+}
+
+.sidebar ul li a{
+
+    text-decoration:none;
+
+    color:white;
+
+    display:block;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:#2563eb;
+
+    transform:translateX(6px);
+
+}
+
+
+
+.top{
+
+    margin-bottom:35px;
+
+}
+
+.top h1{
+
+    font-size:34px;
+
+    color:#0f172a;
+
+}
+
+.top p{
+
+    margin-top:8px;
+
+    color:#64748b;
+
+}
+
+/* Statistics */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(37,99,235,.18);
+
+}
+
+.stat-card h3{
+
+    color:#64748b;
+
+    margin-bottom:15px;
+
+}
+
+.stat-card h2{
+
+    font-size:38px;
+
+    color:#2563eb;
+
+}
+
+/* Recent Jobs */
+
+.recent{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.recent h2{
+
+    margin-bottom:25px;
+
+    color:#0f172a;
+
+}
+
+.job-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    margin-bottom:15px;
+
+    background:#f8fafc;
+
+    transition:.3s;
+
+}
+
+.job-row:hover{
+
+    background:#dbeafe;
+
+}
+
+.job-row h3{
+
+    color:#0f172a;
+
+    margin-bottom:5px;
+
+}
+
+.job-row p{
+
+    color:#64748b;
+
+}
+
+.job-row a{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(135deg,#22d3ee,#2563eb);
+
+    padding:10px 22px;
+
+    border-radius:25px;
+
+    transition:.3s;
+
+}
+
+.job-row a:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.sidebar{
+
+    width:80px;
+
+}
+
+.sidebar .profile h3,
+.sidebar .profile p,
+.sidebar .logo{
+
+    display:none;
+
+}
+
+.sidebar ul li a{
+
+    text-align:center;
+
+    padding:16px;
+
+}
+
+
+
+}
+
+
+
+</style>
+
+
+</head>
+{% load static %}
+
+<body>
+
+<div class="dashboard">
+    
+    <div class="topbar">
+
+    <div class="left-topbar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <h2>Dashboard</h2>
+    </div>
+
+    <div class="notification-icon" onclick="toggleNotifications()">
+
+        🔔
+
+        {% if notifications %}
+            <span class="badge">{{ notifications|length }}</span>
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+
+            Recruit<span>IQ</span>
+
+        </div>
+
+        <div class="profile">
+
+            <div class="avatar">
+
+                👤
+
+            </div>
+
+            <h3>{{ hr.name }}</h3>
+
+            <p>{{ hr.company_name }}</p>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="{% url 'hr_dashboard' %}">
+                    🏠 Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'hr_profile' %}">
+                    👤 My Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'Post_Job' %}">
+                    💼 Post Job
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'posted_jobs' %}">
+                    📋 Posted Jobs
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'all_applicants' %}">
+                    👥 Applicants
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'all_applicants' %}">
+                🤖 AI Screening
+                </a>
+            </li>
+    
+
+           
+
+            <li>
+                <a href="#">
+                    ⚙ Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'Hr_logout' %}">
+                    🚪 Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+       
+
+
+        <div class="top">
+
+            <h1>Welcome {{ hr.name }}</h1>
+
+            <p>
+                Manage your recruitment activities efficiently.
+            </p>
+
+        </div>
+    </div>
+        <div class="stats-grid">
+
+<div class="stat-card">
+
+<h2>{{ total_jobs }}</h2>
+
+<p>Total Jobs</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>{{ total_applicants }}</h2>
+
+<p>Applicants</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>{{ shortlisted }}</h2>
+
+<p>Shortlisted</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>{{ rejected }}</h2>
+
+<p>Rejected</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>{{ average_score }}%</h2>
+
+<p>Average AI Score</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>{{ highest_score }}%</h2>
+
+<p>Highest Match</p>
+
+</div>
+
+</div>
+
+        <!-- Statistics -->
+
+        <div class="stats">
+
+            
+
+            <div class="stat-card">
+
+                <h3>Applications</h3>
+
+                <h2>{{ total_applicants }}</h2>
+
+            </div>
+
+           
+
+            <div class="stat-card">
+
+                <h3>AI Matches</h3>
+
+                <h2>0</h2>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Jobs -->
+
+        <div class="recent">
+
+            <h2>Recent Posted Jobs</h2>
+
+            {% for job in jobs %}
+
+            <div class="job-row">
+
+                <div>
+
+                    <h3>{{ job.job_title }}</h3>
+
+                    <p>{{ job.location }}</p>
+
+                </div>
+
+                <a href="{% url 'posted_jobs' %}">
+
+                    View
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <p>No Jobs Posted Yet.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+<div id="notificationPanel" class="notification-panel">
+
+    <div class="panel-header">
+        <h3>Notifications</h3>
+        <button onclick="toggleNotifications()">✖</button>
+    </div>
+
+    {% for note in notifications %}
+        <div class="notification-item">
+            <strong>{{ note.title }}</strong>
+            <p>{{ note.message }}</p>
+            <small>{{ note.created_at|timesince }} ago</small>
+        </div>
+    {% empty %}
+        <p>No notifications</p>
+    {% endfor %}
+
+</div>
+
+</body>
+<script>
+function toggleSidebar() {
+    document.getElementById("dashboard").classList.toggle("collapsed");
+}
+
+function toggleNotifications(){
+
+    const panel=document.getElementById("notificationPanel");
+
+    panel.classList.toggle("show");
+
+}
+</script>
+</html>
+
+

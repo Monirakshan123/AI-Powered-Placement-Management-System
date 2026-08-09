@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RecruitIQ - Student Registration</title>
+<link rel="stylesheet" href="{% static 'student_app/register.css' %}">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+
+<div class="brand">
+
+<div class="logo">
+<img src="{% static 'images/logo1.png' %}">
+</div>
+
+<h2>
+RecruitIQ
+</h2>
+
+</div>
+
+
+
+<div class="nav-right">
+
+
+<div class="theme" id="themeBtn">
+🌙
+</div>
+
+
+<div class="menu-btn" id="menuBtn">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="menu" id="menu">
+
+
+<a href="home.html">
+Home
+</a>
+
+
+<a href="register.html">
+Register
+</a>
+
+
+<a href="#">
+Logout
+</a>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<!-- REGISTER CARD -->
+
+
+<div class="container">
+
+
+
+<div class="register-card">
+
+
+<h1>
+Institution Registration
+</h1>
+
+
+<p>
+Transform your hiring process with AI-powered platform
+</p>
+
+
+
+<form  method="POST" id="registerForm">
+    {% csrf_token %}
+
+<div class="input-box">
+
+<label>
+College Name <span class="required">*</span>
+</label>
+
+<input 
+type="text"
+id="Name"
+name="institution_name"
+placeholder="Enter institution Name"
+required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>
+website <span class="required">*</span>
+</label>
+
+<input 
+type="text"
+id="website"
+name="website"
+placeholder="Enter institution website "
+required>
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+<label>
+contact person <span class="required">*</span>
+</label>
+
+<input 
+type="text"
+id="website"
+name="contact_person"
+placeholder="Enter contact person"
+required>
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+<label>
+ Email ID <span class="required">*</span>
+</label>
+
+<input 
+type="email"
+id="email"
+name="email"
+placeholder="Enter email"
+required>
+
+</div>
+<div class="input-box">
+
+<label>
+Address <span class="required">*</span>
+</label>
+
+<input
+name="address"
+placeholder="Enter institution address"
+required></input>
+
+</div>
+
+
+
+
+<div class="input-box">
+
+<label>
+Password <span class="required">*</span>
+</label>
+
+<input 
+type="password"
+id="password"
+name="password"
+placeholder="Create password"
+required>
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+<label>
+Confirm Password <span class="required">*</span>
+</label>
+
+<input 
+type="password"
+id="confirmPassword"
+name="confirm_password"
+placeholder="Confirm password"
+required>
+
+</div>
+
+
+
+<p id="error"></p>
+
+
+
+<button type="submit" class="register-btn">
+
+Register Institution
+
+</button>
+
+
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+
+</body>
+
+</html>

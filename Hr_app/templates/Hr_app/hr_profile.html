@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>HR Profile</title>
+
+    <link rel="stylesheet"
+    href="{% static 'Hr_app/hr_profile.css' %}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        Recruit<span>IQ</span>
+
+    </div>
+
+    <div class="nav-right">
+
+        <span>
+
+            Welcome, {{ hr.name }}
+
+        </span>
+
+        <a href="{% url 'Hr_logout' %}" class="logout">
+
+            Logout
+
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>HR Profile</h1>
+
+    <div class="profile-card">
+
+        <div class="avatar">
+
+            👤
+
+        </div>
+
+        <div class="info">
+
+            <div class="row">
+
+                <label>Name</label>
+
+                <span>{{ hr.name }}</span>
+
+            </div>
+
+            <div class="row">
+
+                <label>Company</label>
+
+                <span>{{ hr.company_name }}</span>
+
+            </div>
+
+            <div class="row">
+
+                <label>Email</label>
+
+                <span>{{ hr.email }}</span>
+
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="{% url 'edit_hr_profile' %}" class="edit">
+
+                Edit Profile
+
+            </a>
+
+            <a href="{% url 'hr_dashboard' %}" class="back">
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

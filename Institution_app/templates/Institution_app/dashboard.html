@@ -1,0 +1,150 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Institution Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{% static 'Institution_app/dashboard.css' %}">
+
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        Recruit<span>IQ</span>
+
+    </div>
+
+    <a href="{% url 'institution_dashboard' %}">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+
+    <a href="{% url 'institution_students' %}">
+        <i class="fa-solid fa-user-graduate"></i>
+        Students
+    </a>
+
+    <a href="{% url 'institution_companies' %}">
+    <i class="fa-solid fa-building"></i>
+    Companies
+    </a>
+
+    <a href="{% url 'institution_jobs' %}">
+    <i class="fa-solid fa-briefcase"></i>
+    Jobs
+    </a>
+
+    <a href="{% url 'institution_analytics' %}">
+    <i class="fa-solid fa-chart-line"></i>
+    Analytics
+    </a>
+
+    <a href="{% url 'institution_reports' %}">
+    <i class="fa-solid fa-file-lines"></i>
+    Reports
+    </a>
+    <a href="{% url 'institution_profile' %}">
+    <i class="fa-solid fa-user"></i>
+    Profile
+    </a>
+
+    <a href="{% url 'institution_logout' %}">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </a>
+
+</div>
+
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h2>
+
+            Welcome,
+            {{ institution.college_name }}
+
+        </h2>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            <h3>Total Students</h3>
+
+            <h2>{{ total_students }}</h2>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-building"></i>
+
+            <h3>Companies</h3>
+
+            <h2>{{ total_companies }}</h2>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <h3>Jobs</h3>
+
+            <h2>{{ total_jobs }}</h2>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            <h3>Applications</h3>
+
+            <h2>{{ total_applications }}</h2>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>Shortlisted</h3>
+
+            <h2>{{ shortlisted }}</h2>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-chart-pie"></i>
+
+            <h3>Placement Rate</h3>
+
+            <h2>{{ placement_rate }}%</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

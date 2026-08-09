@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My Applications</title>
+
+<link rel="stylesheet"
+href="{% static 'student_app/my_applications.css' %}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+Recruit<span>IQ</span>
+
+</div>
+
+<div>
+
+<a href="{% url 'student_dashboard' %}" class="back">
+
+Dashboard
+
+</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<h1>My Applications</h1>
+
+{% if applications %}
+
+<div class="grid">
+
+{% for application in applications %}
+
+<div class="card">
+
+<div class="icon">
+
+💼
+
+</div>
+
+<h2>
+
+{{ application.job.job_title }}
+
+</h2>
+
+<p class="company">
+
+{{ application.job.company.company_name }}
+
+</p>
+
+<p>
+
+📍 {{ application.job.location }}
+
+</p>
+
+<p>
+
+📅 Applied On :
+{{ application.applied_at|date:"d M Y" }}
+
+</p>
+
+<div class="status">
+
+{% if application.status == "Applied" %}
+
+<span class="applied">
+
+🟡 Applied
+
+</span>
+
+{% elif application.status == "Shortlisted" %}
+
+<span class="shortlisted">
+
+🟢 Shortlisted
+
+</span>
+
+{% elif application.status == "Rejected" %}
+
+<span class="rejected">
+
+🔴 Rejected
+
+</span>
+
+{% endif %}
+
+</div>
+
+<a href="{% url 'student_jobs' %}" class="view-btn">
+
+View Jobs
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty">
+
+<h2>No Applications Yet</h2>
+
+<p>
+
+Apply for jobs to see them here.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>

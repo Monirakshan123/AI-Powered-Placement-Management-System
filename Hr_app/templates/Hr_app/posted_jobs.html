@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>RecruitIQ | Posted Jobs</title>
+
+    <link rel="stylesheet" href="{% static 'Hr_app/posted_jobs.css' %}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div>
+
+            <h1>Posted Jobs</h1>
+
+            <p>Manage all your active job openings.</p>
+
+        </div>
+
+        <a href="{% url 'Post_Job' %}" class="post-btn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Post New Job
+
+        </a>
+
+    </div>
+
+
+{% if jobs %}
+
+<div class="jobs-grid">
+
+{% for job in jobs %}
+
+<div class="job-card">
+
+<div class="top">
+
+<h2>{{ job.job_title }}</h2>
+
+<span class="badge">{{ job.job_type }}</span>
+
+</div>
+
+<p class="description">
+
+{{ job.description|truncatewords:18 }}
+
+</p>
+
+<div class="details">
+
+<p><i class="fa-solid fa-location-dot"></i> {{ job.location }}</p>
+
+<p><i class="fa-solid fa-indian-rupee-sign"></i> {{ job.salary }}</p>
+
+<p><i class="fa-solid fa-user-graduate"></i> {{ job.qualification }}</p>
+
+<p><i class="fa-solid fa-calendar"></i> {{ job.deadline }}</p>
+
+</div>
+
+<div class="skills">
+
+{% for skill in job.skills.split %}
+
+<span>{{ skill }}</span>
+
+{% endfor %}
+
+</div>
+
+<div class="buttons">
+
+<a href="{% url 'edit_job' job.id %}" class="edit">
+
+<i class="fa-solid fa-pen"></i>
+
+Edit
+
+</a>
+
+<button class="delete"
+onclick="openModal('{% url 'delete_job' job.id %}')">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</button>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h2>No Jobs Posted Yet</h2>
+
+<p>Create your first job opening.</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<!-- Delete Modal -->
+
+<div id="deleteModal" class="modal">
+
+<div class="modal-box">
+
+<h2>Delete Job</h2>
+
+<p>Are you sure you want to delete this job?</p>
+
+<form id="deleteForm" method="POST">
+
+{% csrf_token %}
+
+<button type="button"
+class="cancel"
+onclick="closeModal()">
+
+Cancel
+
+</button>
+
+<button class="delete2">
+
+Delete
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+function openModal(url){
+
+document.getElementById("deleteModal").style.display="flex";
+
+document.getElementById("deleteForm").action=url;
+
+}
+
+function closeModal(){
+
+document.getElementById("deleteModal").style.display="none";
+
+}
+
+</script>
+
+</body>
+
+</html>

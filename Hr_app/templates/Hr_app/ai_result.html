@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Resume Analysis</title>
+
+    <link rel="stylesheet"
+          href="{% static 'Hr_app/ai_result.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+{% if error %}
+
+    <div class="error-card">
+
+        <h2>{{ error }}</h2>
+
+        <a href="{% url 'all_applicants' %}">
+            Back
+        </a>
+
+    </div>
+
+{% else %}
+
+<div class="card">
+
+    <h1>🤖 AI Resume Analysis</h1>
+
+    <hr>
+
+    <h2>{{ application.student.name }}</h2>
+
+    <p><strong>Applied For:</strong>
+       {{ application.job.job_title }}
+    </p>
+
+    <p><strong>Company:</strong>
+       {{ application.job.company.company_name }}
+    </p>
+
+    <div class="score-box">
+
+        <h3>Match Score</h3>
+
+        <h1>{{ score }}%</h1>
+
+    </div>
+
+    {% if score >= 80 %}
+
+        <div class="excellent">
+
+            Excellent Match ✅
+
+        </div>
+
+    {% elif score >= 60 %}
+
+        <div class="good">
+
+            Good Match 👍
+
+        </div>
+
+    {% elif score >= 40 %}
+
+        <div class="average">
+
+            Average Match ⚠️
+
+        </div>
+
+    {% else %}
+
+        <div class="poor">
+
+            Poor Match ❌
+
+        </div>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{% url 'all_applicants' %}" class="back-btn">
+
+        ← Back to Applicants
+
+    </a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
