@@ -67,7 +67,7 @@ def institution_login(request):
 
         return render(
             request,
-            "Institution_app/login.html",
+            "institution_app/login.html",
             {
                 "error": "Invalid Email or Password"
             }
@@ -75,7 +75,7 @@ def institution_login(request):
 
     return render(
         request,
-        "Institution_app/login.html"
+        "institution_app/login.html"
     )
 
 
@@ -132,7 +132,7 @@ def institution_dashboard(request):
 
     return render(
         request,
-        "Institution_app/dashboard.html",
+        "institution_app/dashboard.html",
         context
     )
 
@@ -145,7 +145,7 @@ def institution_students(request):
 
     return render(
         request,
-        "Institution_app/students.html",
+        "institution_app/students.html",
         {
             "students": students
         }
@@ -162,7 +162,7 @@ def institution_companies(request):
 
     return render(
         request,
-        "Institution_app/companies.html",
+        "institution_app/companies.html",
         {
             "companies": companies
         }
@@ -180,7 +180,7 @@ def institution_jobs(request):
 
     return render(
         request,
-        "Institution_app/jobs.html",
+        "institution_app/jobs.html",
         {
             "jobs": jobs
         }
@@ -239,7 +239,7 @@ def institution_analytics(request):
 
     return render(
         request,
-        "Institution_app/analytics.html",
+        "institution_app/analytics.html",
         context
     )
 from student_app.models import StudentProfile
@@ -266,7 +266,7 @@ def institution_reports(request):
 
     return render(
         request,
-        "Institution_app/reports.html",
+        "institution_app/reports.html",
         context
     )
 from django.shortcuts import render, redirect, get_object_or_404
@@ -303,7 +303,7 @@ def institution_profile(request):
 
     return render(
         request,
-        "Institution_app/profile.html",
+        "institution_app/profile.html",
         {
             "institution": institution
         }
